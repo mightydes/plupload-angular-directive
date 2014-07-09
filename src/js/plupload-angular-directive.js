@@ -39,7 +39,7 @@ angular.module('plupload.directive', [])
 						randomString += charSet.substring(randomPoz,randomPoz+1);
 					}
 					return randomString;
-				}
+				};
 
 				if(!iAttrs.id){
 					var randomValue = scope.randomString(5);
@@ -52,13 +52,12 @@ angular.module('plupload.directive', [])
 					iAttrs.$set('plMaxFileSize','10mb');
 				}
 				if(!iAttrs.plUrl){
-					iAttrs.$set('plUrl', plUploadService.getConfig('uploadPath'));
-				}
+					iAttrs.$set('plUrl', plUploadService.getData
 				if(!iAttrs.plFlashSwfUrl){
-					iAttrs.$set('plFlashSwfUrl', plUploadService.getConfig('flashPath'));
+					iAttrs.$set('plFlashSwfUrl', plUploadService.getData('flashPath'));
 				}
 				if(!iAttrs.plSilverlightXapUrl){
-					iAttrs.$set('plSilverlightXapUrl', plUploadService.getConfig('silverLightPath'));
+					iAttrs.$set('plSilverlightXapUrl', plUploadService.getData('silverLightPath'));
 				}
 				if(typeof scope.plFiltersModel=="undefined"){
 					scope.filters = [{title : "Image files", extensions : "jpg,jpeg,gif,png,tiff,pdf"}];
@@ -78,7 +77,7 @@ angular.module('plupload.directive', [])
 						flash_swf_url : iAttrs.plFlashSwfUrl,
 						silverlight_xap_url : iAttrs.plSilverlightXapUrl,
 						filters : scope.filters
-				}
+				};
 
 
 				if(scope.plMultiParamsModel){
@@ -180,4 +179,4 @@ angular.module('plupload.directive', [])
 				// };
 			}
 		};
-	}])
+	}]);
